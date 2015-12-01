@@ -1,4 +1,5 @@
 # Maillog
+[![Build Status](https://travis-ci.org/moccalotto/maillog.svg)](https://travis-ci.org/moccalotto/maillog)
 
 Parse Maillog Files
 
