@@ -1,0 +1,7 @@
+Filler line that should be ignored
+Nov 29 04:07:21 my.host.name postfix/smtp[31573]: D820633602DA: to=<foo.baz@example.com>, relay=blah.com[1.2.3.4]:25, delay=290145, delays=290141/0.01/2.5/1.5, dsn=4.7.0, status=deferred (host blah.example.com[1.2.3.4] You suck. We defer)
+Filler line - ignore me
+Nov 29 04:07:51 my.host.name postfix/smtp[31575]: 14F2C336031B: to=<foo.bar@example.net>, relay=none, delay=23761, delays=23728/0.01/34/0, dsn=4.4.1, status=deferred (connect to mail.example.net[234.234.234.234]:25: Connection timed out)
+Another Filler line - ignore me
+Nov 29 13:30:22 my.host.name postfix/smtp[32364]: 14F2C336031B: to=<foo.bar@example.net>, relay=mail.example.net[234.234.234.234]:25, delay=57512, delays=57330/0.01/2.7/179, dsn=2.6.0, status=sent (250 2.6.0 8603 bytes received in 00:02:58; Message id 201511291327232360 accepted for delivery)
+A third filler line - ignore me
