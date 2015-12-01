@@ -57,7 +57,7 @@ PCRE;
             return false;
         }
 
-        return new MailLogLine(
+        return new MaillogLine(
             $matches['email'],
             $matches['status'],
             $matches['message'],
