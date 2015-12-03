@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Moccalotto\\Maillog\\": ""
+            "Moccalotto\\Maillog\\": "src"
         }
     },
     "archive": {

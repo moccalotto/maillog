@@ -51,7 +51,7 @@ PCRE;
      *
      * @return MaillogLine|false
      */
-    public function parseLine($line)
+    protected function stringToMailLogLine($line)
     {
         if (!preg_match($this->linePattern, $line, $matches)) {
             return false;
@@ -63,6 +63,28 @@ PCRE;
             $matches['message'],
             new DateTime($matches['logged_at'], $this->timezone)
         );
+    }
+
+    /**
+     * Extract all MaillogLine objects from the file
+     *
+     * @return MaillogLine[]
+     */
+    public function lines()
+    {
+        $results = [];
+
+        foreach (file($this->filename) as $line_str) {
+            $line_obj = $this->stringToMailLogLine($line_str);
+            if (!$line_obj) {
+                // The line is not relevant, continue
+                continue;
+            }
+
+            $results[] = $line_obj;
+        }
+
+        return $results;
     }
 
     /**
@@ -78,32 +100,35 @@ PCRE;
     }
 
     /**
-     * Extract parsed lines from log files that are newer than a given date
+     * Get all the MaillogLine objects that are newer than $newer_than
      *
      * @param DateTime $newer_than
      *
-     * @return array[] array of lines, parsed into arrays
+     * @return MaillogLine[] array of lines, parsed into arrays
      */
     public function getLinesNewerThan(DateTime $newer_than)
     {
         if (!$this->newerThan($newer_than)) {
             return [];
         }
+
         $results = [];
-        foreach (file($this->filename) as $line) {
-            $line = $this->parseLine($line);
-            if (!$line) {
+
+        foreach (file($this->filename) as $line_str) {
+            $line_obj = $this->stringToMailLogLine($line_str);
+            if (!$line_obj) {
                 // The line is not relevant, continue
                 continue;
             }
 
-            if ($line->loggedAt() <= $newer_than) {
+            if ($line_obj->loggedAt() <= $newer_than) {
                 // the line is outdated, continue
                 continue;
             }
 
-            $results[] = $line;
+            $results[] = $line_obj;
         }
+
         return $results;
     }
 }
