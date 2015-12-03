@@ -1,10 +1,11 @@
 <?php
 
 use Moccalotto\Maillog\MaillogFile;
+use Moccalotto\Maillog\LineParser;
 
 require 'vendor/autoload.php';
 
-$file = new MaillogFile('spec/Moccalotto/Maillog/maillog');
+$file = new MaillogFile('spec/Moccalotto/Maillog/maillog', new LineParser());
 
 print 'All Lines' . PHP_EOL;
 print_r($file->getLinesNewerThan(new DateTime('1999-01-01 00:00:00 UTC')));
