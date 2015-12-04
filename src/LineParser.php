@@ -20,9 +20,9 @@ PCRE;
     protected $timezone;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $pattern The pattern to use to parse the line.
+     * @param string       $pattern  The pattern to use to parse the line.
      * @param DateTimeZone $timezone The timezone to use if timezone is not stated in the date "field" of the log line.
      */
     public function __construct($pattern = null, DateTimeZone $timezone = null)

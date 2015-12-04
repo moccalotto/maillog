@@ -17,7 +17,7 @@ class MaillogLine implements JsonSerializable
 
     public function uid()
     {
-        return md5($this->email . $this->loggedAt->format('U'));
+        return md5($this->email.$this->loggedAt->format('U'));
     }
 
     public function email()
@@ -56,12 +56,12 @@ class MaillogLine implements JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'uid'       => $this->uid(),
-            'email'     => $this->email,
-            'status'    => $this->status,
-            'message'   => $this->message,
-            'code'      => $this->code(),
-            'loggedAt'  => $this->loggedAt->format('c')
+            'uid' => $this->uid(),
+            'email' => $this->email,
+            'status' => $this->status,
+            'message' => $this->message,
+            'code' => $this->code(),
+            'loggedAt' => $this->loggedAt->format('c'),
         ];
     }
 }

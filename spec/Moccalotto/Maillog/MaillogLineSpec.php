@@ -3,11 +3,10 @@
 namespace spec\Moccalotto\Maillog;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class MaillogLineSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->beConstructedWith(
             'test@example.com',
@@ -18,7 +17,7 @@ class MaillogLineSpec extends ObjectBehavior
         $this->shouldHaveType('Moccalotto\Maillog\MaillogLine');
     }
 
-    function it_has_all_necessary_dto_functionality()
+    public function it_has_all_necessary_dto_functionality()
     {
         $dt = new \DateTime('now', new \DateTimeZone('UTC'));
         $this->beConstructedWith(
@@ -34,7 +33,7 @@ class MaillogLineSpec extends ObjectBehavior
         $this->loggedAt()->shouldBe($dt);
     }
 
-    function it_can_extract_code_from_alternate_message_format()
+    public function it_can_extract_code_from_alternate_message_format()
     {
         $dt = new \DateTime('now', new \DateTimeZone('UTC'));
         $this->beConstructedWith(

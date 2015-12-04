@@ -7,14 +7,14 @@ use DateTime;
 interface LineExtractor
 {
     /**
-     * Extract all MaillogLine objects from the file
+     * Extract all MaillogLine objects from the file.
      *
      * @return MaillogLine[]
      */
     public function lines();
 
     /**
-     * Get all the MaillogLine objects that are newer than $newer_than
+     * Get all the MaillogLine objects that are newer than $newer_than.
      *
      * @param DateTime $newer_than
      *

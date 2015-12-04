@@ -7,25 +7,25 @@ use DateTime;
 class MaillogFile implements Contracts\LineExtractor
 {
     /**
-     * The parser to use to parse maillog lines
+     * The parser to use to parse maillog lines.
      *
      * @var Contracts\Parser
      */
     protected $parser;
 
     /**
-     * The filename of this log file
+     * The filename of this log file.
      *
      * @var string
      */
     protected $filename;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string $filename          The file to parse.
-     * @param Contracts\Parser $parser  The parser to use to parse lines.
-     * @param string $linePattern       The regex to use to parse line entries in the log file.
+     * @param string           $filename    The file to parse.
+     * @param Contracts\Parser $parser      The parser to use to parse lines.
+     * @param string           $linePattern The regex to use to parse line entries in the log file.
      */
     public function __construct($filename, Contracts\Parser $parser)
     {
@@ -35,7 +35,7 @@ class MaillogFile implements Contracts\LineExtractor
     }
 
     /**
-     * Extract all MaillogLine objects from the file
+     * Extract all MaillogLine objects from the file.
      *
      * @return MaillogLine[]
      */
@@ -69,7 +69,7 @@ class MaillogFile implements Contracts\LineExtractor
     }
 
     /**
-     * Get all the MaillogLine objects that are newer than $newer_than
+     * Get all the MaillogLine objects that are newer than $newer_than.
      *
      * @param DateTime $newer_than
      *
