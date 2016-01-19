@@ -18,7 +18,6 @@ class MaillogFileSpec extends ObjectBehavior
     {
         $this->beConstructedWith(__DIR__.'/maillog', new LineParser());
         $this->getLinesNewerThan(new DateTime('1999-01-01 00:00:00 UTC'))->shouldHaveCount(3);
-        $this->getLinesNewerThan(new DateTime('1999-01-01 00:00:00 UTC'))->shouldHaveCount(3);
         $this->getLinesNewerThan(new DateTime('Nov 29 13:30:21 UTC'))->shouldHaveCount(1);
         $this->getLinesNewerThan(new DateTime('2200-01-01 UTC'))->shouldHaveCount(0);
     }
